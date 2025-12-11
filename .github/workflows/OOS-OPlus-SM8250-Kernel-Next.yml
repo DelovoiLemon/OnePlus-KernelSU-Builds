@@ -1,4 +1,4 @@
-name: Build Nameless OPlus SM8250 KernelSU Next
+name: Build OOS OPlus SM8250 KernelSU Next
 
 on:
   workflow_dispatch:
@@ -96,7 +96,7 @@ jobs:
     - name: Compress AnyKernel3 with KernelSU Next folder to zip
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/AnyKernel3
-        zip -r $GITHUB_WORKSPACE/AK3-Nameless-OPlus-SM8250-KSU-Next_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}.zip ./*
+        zip -r $GITHUB_WORKSPACE/AK3-OOS-OPlus-SM8250-KSU-Next_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}.zip ./*
 
     - name: Upload Image
       if: env.CHECK_IMAGE_1 == 'true'
@@ -109,7 +109,7 @@ jobs:
       if: env.CHECK_IMAGE_1 == 'true'
       uses: actions/upload-artifact@v4
       with:
-        name: AK3-Nameless-OPlus-SM8250-KSU-Next_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}
+        name: AK3-OOS-OPlus-SM8250-KSU-Next_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}
         path: kernel_workspace/AnyKernel3/*
 
     # - name: Send AnyKernel3 to Telegram
@@ -122,7 +122,7 @@ jobs:
     #     caption2="\
     #     <blockquote><a href=\"https://github.com/rsuntk/KernelSU\"><b>Unofficial</b>-${{ env.KSUVER_1 }}</a></blockquote>
         
-    #     ROM:<blockquote><b>Nameless-CLO 15</b> - <a href=\"https://t.me/NamelessUpdates/186\">Dec 2024 update</a></blockquote>
+    #     ROM:<blockquote><b>OOS-CLO 15</b> - <a href=\"https://t.me/OOSUpdates/186\">Dec 2024 update</a></blockquote>
     #     Device:<blockquote>OnePlus 8 | OnePlus 8 Pro | OnePlus 8T | OnePlus 9R</blockquote>
     #     Build Time:<blockquote>${{ env.BUILD_TIME_1 }}</blockquote>
     #     Special Note:
@@ -140,5 +140,5 @@ jobs:
     #         {type: "document", media: $media2, caption: $caption2, parse_mode: "HTML"}]')
     #     curl "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMediaGroup?chat_id=$TELEGRAM_CHAT_ID" \
     #         -F "media=$media" \
-    #         -F official="@$GITHUB_WORKSPACE/AK3-Nameless-OPlus-SM8250-Official-KSU_${{ env.KSUVER }}-${{ env.BUILD_TIME }}.zip" \
-    #         -F unofficial="@$GITHUB_WORKSPACE/AK3-Nameless-OPlus-SM8250-Unofficial-KSU_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}.zip"
+    #         -F official="@$GITHUB_WORKSPACE/AK3-OOS-OPlus-SM8250-Official-KSU_${{ env.KSUVER }}-${{ env.BUILD_TIME }}.zip" \
+    #         -F unofficial="@$GITHUB_WORKSPACE/AK3-OOS-OPlus-SM8250-Unofficial-KSU_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}.zip"
